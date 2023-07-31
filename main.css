@@ -50,6 +50,9 @@ form input{
     cursor: pointer;
     border: none
 }
+.btn:focus {
+    border: 1px solid white;
+}
 .btnYellow{
     background-color: #ff9900;
 }
