@@ -58,6 +58,10 @@ function operate() {
     operators.forEach(function (button) {
     button.addEventListener("click", function (e) {
         let value = e.target.dataset.num;
+        if (operator) {
+            operate();
+            num2 = "";
+        }
         operator = value;
         num1 = screen.value;
     });
@@ -66,26 +70,21 @@ function operate() {
     button.addEventListener("click", function (e) {
         let value = e.target.dataset.num;
 
+        
 
+        if (screen.value === "" && value === ".") {
+            return
+        }
         if(screen.value.includes(".") && value === "."){
             return;
         }
 
         if(operator === "/" && num2 == 0){
-            screen.value = "cannot divide by zero";
+            screen.value = "Cannot divide by zero!";
             screen.style.fontSize = "26px";
             screen.style.color = "red";
             return;
         }        
-                
-        if (num1 && operator && num2) {
-            const result = calculateResult(num1, operator, num2);
-            screen.value = result.toString();
-            num1 = result.toString();
-            num2 = "";
-            operator = "";
-        }
-
 
         if (operator && !num2) {
         screen.value = "";

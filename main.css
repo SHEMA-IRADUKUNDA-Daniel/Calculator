@@ -69,3 +69,6 @@ form input{
 .btnClear{
     background-color: #bb0a0a;
 }
+input::placeholder{
+    color: white;
+}
